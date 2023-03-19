@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LightBot v0.9</title>
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css' />
+    <link type="text/css" href="css/lightbot.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+    <script type="text/javascript" src="js/jquery.history.js"></script>
+    <script type="text/javascript" src="js/lightbot.min.js"></script>
+  </head>
+  <body>
+    <div id="audioContainer">
+      <div id="audioPlayer"></div>
+    </div>
+
+    
+    <div id="lightbot">
+
+      <div id="credits">Desarrollado por <a href="http://www.haan.lu" target="_blank">Laurent Haan</a>. Interface por <a href="http://zenobiahoman.daportfolio.com/">Zenobia Homan</a>. Animación por <a href="http://www.pixeljoint.com/forum/member_profile.asp?PF=2146">Surt</a>. Música por <a href="http://hektikmusic.newgrounds.com/" target="_blank">Hektikmusic</a>. Concepto original por <a href="http://coolio-niato.newgrounds.com/" target="_blank">Coolio Niato </a>Versión español por <a href="http://www.mileti.com.ar/">Pablo Mileti</a>..</div>
+
+      <div id="welcomeScreen" class="ui-screen">
+        <button class="helpButton">Ayuda</button>
+        <button class="achievementsButton">Logros</button>
+        <button class="levelSelectButton ui-state-highlight">Iniciar juego</button>
+        <button class="audioToggleButton">Modificar Audio</button>
+      </div>
+
+      <div id="achievementsScreen" class="ui-screen ui-helper-hidden">
+        <h1>Logros</h1>
+        <ul id="achievementsList">
+        </ul>
+        <button class="mainMenuButton">Menú Principal</button>
+      </div>
+
+      <div id="helpScreen" class="ui-screen ui-helper-hidden">
+        <div id="helpScreenAccordionContainer">
+          <div id="helpScreenAccordion">
+            <h3><a href="#goal">Objetivo del juego</a></h3>
+            <div>
+              <p>
+              Para completar el juego, debés hacer que el robot encienda todas las baldosas de color azul. Sin embargo, la única forma que tiene el robot de entenderte es mediante un conjunto de órdenes que él comprende.
+              </p>
+            </div>
+            <h3><a href="#howto">¿Cómo se juega?</a></h3>
+            <div>
+              <p>
+              Debés crear un programa arrastrando instrucción por instrucción desde la lista de instrucciones que el robot comprende. Esas instrucciones las debés dejar dentro de Programa. Las instrucciones se agregan automaticamente al final donde se resalta con amarillo. Luego podrás arrastrarla a una posición anterior
+              </p>
+              <p>El programa se ejecuta desde el botón Run. Si no te convence el programa que hiciste, podrás detener la ejecución mediante el botón Stop. Eso hará que el robot regrese a su posición inicial.
+              </p>
+            </div>
+            <h3><a href="#objects">Objetivo del juego</a></h3>
+            <div>
+              <p>
+              En cada nivel verás que hay baldosas de color azul, esas baldosas deberás encendarlas y que se vean en amarillo. Cuando todas las baldosas azules se hayan convertido en amarillas pasarás al siguiente nivel.
+              </p>
+            </div>
+            <h3><a href="#walk_forward">Instrucción: Caminar adelante</a></h3>
+            <div>
+              <p>
+              Con esta instrucción el robot avanza a la baldosa que tiene por delante. Solo avanza en caso de no tener obstaculos adelante.
+              </p>
+            </div>
+            <h3><a href="#turn_right">Instrucción: Girar 90&deg; a la derecha</a></h3>
+            <div>
+              <p>
+              Con esta instrucción el robot girará en su mismo lugar un cuarto de vuelta en el sentido horario.
+              </p>
+            </div>
+            <h3><a href="#turn_left">Instrucción: Girar 90&deg; a la izquierda</a></h3>
+            <div>
+              <p>
+                Con esta instrucción el robot girará en su mismo lugar un cuarto de vuelta en el sentido contrario a las agujas del reloj.
+              </p>
+            </div>
+            <h3><a href="#jump">Instrucción: Saltar</a></h3>
+            <div>
+              <p>
+              Con esta instrucción el robot saltará, pero dependiendo de lo donde este parado o de lo que tenga por delante se comportará diferente. Si adelante hay un lugar libre, el robot salta en su misma posición sin avanzar. Si delante hay un solo obstaculo saltará para posicionarse sobre el. Si está parado sobre un obstaculo, al saltar adelante descenderá.
+              </p>
+            </div>
+            <h3><a href="#light">Instrucción: Encender</a></h3>
+            <div>
+              <p>
+              Se la utiliza para cambiar el estado de la baldosa azul, aunque si la baldosa esta encendida en amarillo, esta intrucción la apagará dejandola nuevamente en azul.
+              </p>
+            </div>
+            <h3><a href="#repeat">Instrucción: Repetir</a></h3>
+            <div>
+              <p>
+              Esta instrucción es típica en programación para repetir muchas veces un conjunto de sentencias. Va a repetir un cantidad de veces que le indiquemos lo que tenga en su interior, incluso en su interior podrá contener otra instrucción repetir, para hacer los programas mas compactos uyilizando menos candtidad de instrucciones.
+              </p>
+            </div>
+            <h3><a href="#medals">Medallas</a></h3>
+            <div>
+              <p>
+              Las medallas son premios que vas a conseguir si superas los niveles con poca cantidad de instrucciones. Aunque si superas los niveles utilizando mas instrucciones no debés preocparte, porque en definitiva el robot logra cumplir su objetivo. A veces lograr un código mínimo es mas elegante que un código largo y repetitivo.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="helpScreenVerticalBar"></div>
+        <div id="videoContainer" class="jp-video jp-video-300p">
+          <div class="jp-type-single">
+            <div id="videoPlayer" class="jp-jplayer"></div>
+            <div class="jp-gui">
+              <div class="jp-video-play">
+                <a href="javascript:;" class="jp-video-play-icon" tabindex="1">play</a>
+              </div>
+              <div class="jp-interface">
+                <div class="jp-progress">
+                  <div class="jp-seek-bar">
+                    <div class="jp-play-bar"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="mainMenuButton">Menú principal</button>
+      </div>
+
+      <div id="levelSelectScreen" class="ui-screen ui-helper-hidden">
+        <h1>Seleccione Nivel</h1>
+        <ul id="levelList">
+        </ul>
+        <button class="mainMenuButton">Menú principal</button>
+      </div>
+
+      <div id="gameScreen" class="ui-screen ui-helper-hidden">
+        <div id="canvasContainer">
+          <canvas id="gameCanvas" width="690" height="666"></canvas>
+        </div>
+        <div id="buttonContainer">
+          <button class="levelSelectButton">Atras</button>
+          <button class="audioToggleButton">Cambiar Audio</button>
+          <button id="clearButton">Limpiar</button>
+          <button id="runButton">Run</button>
+        </div>
+        <div id="instructionsContainer">
+          <h2>Instrucciones</h2>
+          <div>
+            <ul>
+                <li><p class="walk"><span class="ui-icon ui-icon-arrowthick-1-n" style="float: left;"></span>Caminar adelante<span class="ui-icon ui-icon-close" style="float: right;"></span></p></li>
+                <li><p class="turnRight"><span class="ui-icon ui-icon-arrowreturnthick-1-w flip" style="float: left;"></span>Girar 90&deg; a la derecha<span class="ui-icon ui-icon-close" style="float: right;"></span></p></li>
+                <li><p class="turnLeft"><span class="ui-icon ui-icon-arrowreturnthick-1-w" style="float: left;"></span>Girar 90&deg; a la izquierda<span class="ui-icon ui-icon-close" style="float: right;"></span></p></li>
+                <li><p class="jump"><span class="ui-icon ui-icon-arrowthickstop-1-n" style="float: left;"></span>Saltar<span class="ui-icon ui-icon-close" style="float: right;"></span></p></li>
+                <li><p class="light"><span class="ui-icon ui-icon-lightbulb" style="float: left;"></span>Encender<span class="ui-icon ui-icon-close" style="float: right;"></span></p></li>
+                <li><p class="repeat"><span class="ui-icon ui-icon-refresh" style="float: left;"></span>Repetir <span><input type="number" min="1" max="99" step="1" value="2"> veces</span><span class="ui-icon ui-icon-close" style="float: right;"></span></p>
+                  <div class="droppable">
+                    <div class="ui-widget-content">
+                      <ul>
+                        <li class="placeholder"><p class="placeholder">Arrastrá aquí tus instrucciones</p></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+        <div id="programContainer">
+          <h2>Programa</h2>
+          <div class="droppable">
+            <ul>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="credits2">
+        <div style="float:left;"></div>
+        <div style="float:right;"></div>
+      </div>
+    </div>
+
+    <div id="dialogs">
+      <div id="levelCompleteDialog" title="Level complete">
+        <p>
+          <span class="medal" style="float:left; margin:0 7px 50px 0;"></span>
+          Felicitaciones! Completaste el nivel usando <span class="nbrOfInstructions"></span> instrucciones!
+        </p>
+        <p class="message" style="margin-top: 10px"></p>
+      </div>
+
+      <div id="achievementDialog" title="Achievement unlocked!">
+        <p>
+          <span class="achievement" style="float:left; margin:0 7px 50px 0;"></span>
+          <span class="message"></span>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
